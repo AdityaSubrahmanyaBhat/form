@@ -24,7 +24,7 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
-                height: 200.0,
+                height: 250.0,
               ),
               Container(
                 margin: EdgeInsets.symmetric(horizontal: 30.0),
@@ -100,7 +100,6 @@ class _LoginPageState extends State<LoginPage> {
                           bottom: 20.0,
                         ),
                         child: TextFormField(
-                          obscureText: obscure,
                           validator: MultiValidator([
                             RequiredValidator(errorText: "Required"),
                             MinLengthValidator(6,
@@ -112,8 +111,8 @@ class _LoginPageState extends State<LoginPage> {
                             PatternValidator(r'(?=.*?[#?!@$%^&*-])',
                                 errorText:
                                     "Password must have atleast one special character"),
-                                    
                           ]),
+                          obscureText: obscure,
                           controller: _passwordController,
                           cursorColor: Colors.black,
                           style: TextStyle(),
@@ -144,7 +143,6 @@ class _LoginPageState extends State<LoginPage> {
                           bottom: 30.0,
                         ),
                         child: TextFormField(
-                          obscureText: obscure,
                           validator: (val) {
                             if (val.isEmpty) {
                               return "Required";
@@ -153,6 +151,7 @@ class _LoginPageState extends State<LoginPage> {
                                     errorText: "Passwords don't match")
                                 .validateMatch(val, _passwordController.text);
                           },
+                          obscureText: obscure,
                           cursorColor: Colors.black,
                           style: TextStyle(),
                           decoration: InputDecoration(
